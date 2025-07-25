@@ -24,7 +24,7 @@ tailwind.config = {
 const navbar = document.getElementById("navbar");
 const anggotaSection = document.getElementById("anggota");
 const scrollBtn = document.getElementById("scrollToTopBtn");
-const menu = document.getElementById("menu");
+const heroSection = document.getElementById("hero");
 
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -62,11 +62,12 @@ window.addEventListener("scroll", () => {
 	}
 });
 
+// Scroll listener untuk ubah warna navbar
 window.addEventListener("scroll", () => {
-	const sectionTop = anggotaSection.offsetTop;
+	const heroBottom = heroSection.offsetHeight;
 	const scrollY = window.scrollY;
 
-	if (scrollY + 80 >= sectionTop) {
+	if (scrollY > heroBottom - 80) {
 		navbar.classList.remove("text-white");
 		navbar.classList.add("text-gray-800");
 		menu.classList.remove("text-white");

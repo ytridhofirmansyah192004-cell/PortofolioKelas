@@ -24,7 +24,8 @@
 
 					<!-- Desktop Menu -->
 					<div id="menu" class="hidden md:flex space-x-6 text-sm font-medium text-white">
-						<a href="#home" class="hover:text-opacity-80">Home</a>
+						<a href="#hero" class="hover:text-opacity-80">Home</a>
+						<a href="#tentang" class="hover:text-opacity-80">Tentang</a>
 						<a href="#anggota" class="hover:text-opacity-80">Anggota</a>
 						<a href="#sosial" class="hover:text-opacity-80">Sosial Media</a>
 						<a href="galeri.html" class="hover:text-opacity-80">Galeri</a>
@@ -40,8 +41,8 @@
 				</div>
 			</div>
 		</nav>
-
-		<div id="home" class="relative min-h-screen overflow-hidden">
+		<!-- Hero Section -->
+		<div id="hero" class="relative min-h-screen overflow-hidden">
 			<div class="absolute inset-0 bg-cover bg-center blur-bg" style="background-image: url('img/NUSTEL.IN_33.JPG')"></div>
 			<div class="hero-gradient relative inset-0 pt-16">
 				<div class="container mx-auto px-4 h-screen flex flex-col justify-center items-center text-white relative z-10">
@@ -57,6 +58,118 @@
 				</div>
 			</div>
 		</div>
+		<section id="tentang" class="py-20 bg-gray-50 relative">
+			<div class="max-w-6xl mx-auto px-4">
+				<h2 class="text-4xl font-bold text-center text-primary mb-16">Tentang Kelas</h2>
+
+				<div class="relative">
+					<!-- Garis Timeline -->
+					<div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full border-l-4 border-primary"></div>
+
+					<!-- ITEM SEMESTER 1 -->
+					<div class="mb-20 flex flex-col md:flex-row items-center md:justify-between relative">
+						<!-- Konten (mobile kanan, desktop kiri) -->
+						<div class="md:w-5/12 md:text-right order-2 md:order-1 ml-10 md:ml-0">
+							<h3 class="text-xl font-bold mb-2 text-primary">Semester 1</h3>
+							<p class="text-gray-700">Awal mula perjalanan kami sebagai satu kelas. Belajar, adaptasi, dan mulai membangun kebersamaan.</p>
+						</div>
+
+						<!-- Titik Tengah -->
+						<div class="w-6 h-6 bg-primary rounded-full border-4 border-white z-10 absolute left-4 md:left-1/2 transform md:-translate-x-1/2"></div>
+
+						<!-- Gambar (mobile bawah, desktop kanan) -->
+						<div class="md:w-5/12 mt-6 md:mt-0 order-1 md:order-2">
+							<img src="img/2022.jpg" alt="2022" class="rounded-xl shadow-lg transform -rotate-2 w-full max-w-sm mx-auto" />
+						</div>
+					</div>
+
+					<!-- SEMESTER 2 -->
+					<div class="mb-20 flex flex-col md:flex-row items-center md:justify-between relative">
+						<!-- Gambar (mobile atas, desktop kiri) -->
+						<div class="md:w-5/12 order-2 md:order-1">
+							<img src="img/2023.jpg" alt="2023" class="rounded-xl shadow-lg transform rotate-2 w-full max-w-sm mx-auto" />
+						</div>
+
+						<!-- Titik Tengah -->
+						<div class="w-6 h-6 bg-primary rounded-full border-4 border-white z-10 absolute left-4 md:left-1/2 transform md:-translate-x-1/2"></div>
+
+						<!-- Konten (mobile bawah, desktop kanan) -->
+						<div class="md:w-5/12 mt-6 md:mt-0 md:text-left ml-10 md:ml-0 order-1 md:order-2">
+							<h3 class="text-xl font-bold mb-2 text-primary">Semester 2</h3>
+							<p class="text-gray-700">Kami semakin erat, mulai aktif ikut lomba dan mengadakan kegiatan seru seperti buka puasa bersama dan kerja kelompok.</p>
+						</div>
+					</div>
+					<!-- ITEM SEMESTER 3 -->
+					<div class="mb-20 flex flex-col md:flex-row items-center md:justify-between relative">
+						<!-- Konten (mobile kanan, desktop kiri) -->
+						<div class="md:w-5/12 md:text-right order-2 md:order-1 ml-10 md:ml-0">
+							<h3 class="text-xl font-bold mb-2 text-primary">Semester 3</h3>
+							<p class="text-gray-700">Awal mula perjalanan kami sebagai satu kelas. Belajar, adaptasi, dan mulai membangun kebersamaan.</p>
+						</div>
+
+						<!-- Titik Tengah -->
+						<div class="w-6 h-6 bg-primary rounded-full border-4 border-white z-10 absolute left-4 md:left-1/2 transform md:-translate-x-1/2"></div>
+
+						<!-- Gambar (mobile bawah, desktop kanan) -->
+						<div class="md:w-5/12 mt-6 md:mt-0 order-1 md:order-2">
+							<img src="img/2022.jpg" alt="2022" class="rounded-xl shadow-lg transform -rotate-2 w-full max-w-sm mx-auto" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="struktur" class="bg-gray-50 py-20 px-6">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl font-bold mb-12 text-primary">Struktur Organisasi Kelas</h2>
+
+				<!-- Ketua -->
+				<div class="flex justify-center mb-12">
+					<div class="flex flex-col items-center">
+						<img src="img/ketua.jpg" alt="Ketua" class="w-24 h-24 rounded-full object-cover mb-2 border-4 border-primary" />
+						<h3 class="font-semibold text-lg">Ahmad Rizki</h3>
+						<p class="text-gray-600">Ketua</p>
+					</div>
+				</div>
+
+				<!-- Sekretaris, Wakil, Bendahara -->
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 justify-center">
+					<div class="flex flex-col items-center">
+						<img src="img/sek1.jpg" class="w-20 h-20 rounded-full object-cover mb-2 border-2 border-gray-300" />
+						<h3 class="font-semibold text-sm">Raisa</h3>
+						<p class="text-gray-500 text-sm">Sekretaris 1</p>
+					</div>
+					<div class="flex flex-col items-center">
+						<img src="img/sek2.jpg" class="w-20 h-20 rounded-full object-cover mb-2 border-2 border-gray-300" />
+						<h3 class="font-semibold text-sm">Iqbal</h3>
+						<p class="text-gray-500 text-sm">Sekretaris 2</p>
+					</div>
+					<div class="flex flex-col items-center">
+						<img src="img/wakil.jpg" class="w-20 h-20 rounded-full object-cover mb-2 border-2 border-gray-300" />
+						<h3 class="font-semibold text-sm">Nina</h3>
+						<p class="text-gray-500 text-sm">Wakil Ketua</p>
+					</div>
+					<div class="flex flex-col items-center">
+						<img src="img/bendahara.jpg" class="w-20 h-20 rounded-full object-cover mb-2 border-2 border-gray-300" />
+						<h3 class="font-semibold text-sm">Taufik</h3>
+						<p class="text-gray-500 text-sm">Bendahara</p>
+					</div>
+				</div>
+
+				<!-- Anggota -->
+				<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+					<div class="flex flex-col items-center">
+						<img src="img/anggota1.jpg" class="w-16 h-16 rounded-full object-cover mb-2 border" />
+						<h3 class="text-sm font-medium">Dewi</h3>
+					</div>
+					<div class="flex flex-col items-center">
+						<img src="img/anggota2.jpg" class="w-16 h-16 rounded-full object-cover mb-2 border" />
+						<h3 class="text-sm font-medium">Fahmi</h3>
+					</div>
+					<!-- Tambah anggota lain sesuai kebutuhan -->
+				</div>
+			</div>
+		</section>
 		<section id="anggota" class="min-h-screen bg-white py-20 px-6">
 			<div class="container mx-auto">
 				<h2 class="text-4xl font-bold text-center mb-12 text-primary">Anggota Kelas</h2>
