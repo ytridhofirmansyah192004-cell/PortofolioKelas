@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Teknik Komputer A</title>
+		<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body class="font-['Inter']">
+		<nav id="navbar" class="fixed top-0 left-0 right-0 60 backdrop-blur-sm z-50 text-white transition-colors duration-300">
+			<div class="container mx-auto px-6">
+				<div class="flex justify-between items-center h-16">
+					<div class="text-xl font-bold flex items-center gap-2"><img src="img/380938694_1318676755440881_1850078113817887475_n.png" alt="profil" class="w-10 h-10 rounded-full object-cover" />Teknik Komputer A</div>
+
+					<!-- Hamburger Icon -->
+					<button id="menu-btn" class="md:hidden focus:outline-none text-2xl">
+						<i class="ri-menu-line"></i>
+					</button>
+
+					<!-- Desktop Menu -->
+					<div id="menu" class="hidden md:flex space-x-6 text-sm font-medium text-white">
+						<a href="#home" class="hover:text-opacity-80">Home</a>
+						<a href="#anggota" class="hover:text-opacity-80">Anggota</a>
+						<a href="#sosial" class="hover:text-opacity-80">Sosial Media</a>
+						<a href="galeri.html" class="hover:text-opacity-80">Galeri</a>
+					</div>
+				</div>
+
+				<!-- Mobile Dropdown -->
+				<div id="mobile-menu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex-col space-y-2 mt-2 font-medium px-4 py-0 md:hidden">
+					<a href="#home" class="block px-2 py-1 rounded-md hover:bg-white/10 transition-colors duration-200">Home</a>
+					<a href="#anggota" class="block px-2 py-1 rounded-md hover:bg-white/10 transition-colors duration-200">Anggota</a>
+					<a href="#sosial" class="block px-2 py-1 rounded-md hover:bg-white/10 transition-colors duration-200">Sosial Media</a>
+					<a href="galeri.html" class="block px-2 py-1 rounded-md hover:bg-white/10 transition-colors duration-200">Galeri</a>
+				</div>
+			</div>
+		</nav>
+
+		<div id="home" class="relative min-h-screen overflow-hidden">
+			<div class="absolute inset-0 bg-cover bg-center blur-bg" style="background-image: url('img/NUSTEL.IN_33.JPG')"></div>
+			<div class="hero-gradient relative inset-0 pt-16">
+				<div class="container mx-auto px-4 h-screen flex flex-col justify-center items-center text-white relative z-10">
+					<h1 class="text-6xl font-bold mb-2 text-center">Teknik Komputer A</h1>
+					<h2 class="text-3xl font-bold mb-6 text-center">Angkatan 2022</h2>
+					<p class="text-xl mb-8 text-center max-w-2xl">Bersama Kita Belajar, Bersama Kita Tumbuh. Mari bergabung dalam perjalanan pembelajaran yang penuh inspirasi di Teknik Komputer A.</p>
+					<button onclick="document.getElementById('anggota').scrollIntoView({behavior: 'smooth'})" class="bg-white text-black px-8 py-3 rounded-button font-semibold hover:bg-opacity-90 transition-all flex items-center gap-2">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+						</svg>
+						Jelajahi Kelas Kami
+					</button>
+				</div>
+			</div>
+		</div>
+		<section id="anggota" class="min-h-screen bg-white py-20 px-6">
+			<div class="container mx-auto">
+				<h2 class="text-4xl font-bold text-center mb-12 text-primary">Anggota Kelas</h2>
+				<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=1&orientation=squarish"
+								alt="Anggota 1"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Ahmad Rizki</h3>
+							<p class="text-gray-600">Ketua Kelas</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20female%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=2&orientation=squarish"
+								alt="Anggota 2"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Siti Nurhaliza</h3>
+							<p class="text-gray-600">Wakil Ketua</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20male%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=3&orientation=squarish"
+								alt="Anggota 3"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Budi Santoso</h3>
+							<p class="text-gray-600">Sekretaris</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20female%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=4&orientation=squarish"
+								alt="Anggota 4"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Dewi Lestari</h3>
+							<p class="text-gray-600">Bendahara</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20male%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=5&orientation=squarish"
+								alt="Anggota 5"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Raden Wijaya</h3>
+							<p class="text-gray-600">Anggota</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20female%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=6&orientation=squarish"
+								alt="Anggota 6"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Maya Indah</h3>
+							<p class="text-gray-600">Anggota</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20male%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=7&orientation=squarish"
+								alt="Anggota 7"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Dimas Prayoga</h3>
+							<p class="text-gray-600">Anggota</p>
+						</div>
+					</div>
+					<div class="group transition-transform hover:-translate-y-2">
+						<div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+							<img
+								src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20asian%20female%20student%20wearing%20casual%20attire%2C%20natural%20lighting%2C%20clean%20background%2C%20high%20quality%2C%20photorealistic&width=400&height=400&seq=8&orientation=squarish"
+								alt="Anggota 8"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div class="mt-4 text-center">
+							<h3 class="font-semibold text-lg">Putri Rahayu</h3>
+							<p class="text-gray-600">Anggota</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="sosial" class="bg-primary text-white py-20 px-6">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl font-bold mb-8">Sosial Media Kelas</h2>
+				<p class="text-lg mb-4">Yuk ikuti dan dukung aktivitas kami di media sosial!</p>
+				<div class="flex justify-center gap-6 text-3xl">
+					<a href="#" class="hover:text-gray-300"><i class="ri-instagram-line"></i></a>
+					<a href="#" class="hover:text-gray-300"><i class="ri-facebook-line"></i></a>
+					<a href="#" class="hover:text-gray-300"><i class="ri-whatsapp-line"></i></a>
+				</div>
+			</div>
+			<footer class="text-center text-sm text-gray-500 mt-10 pb-6">&copy; 2025 Teknik Komputer A — Galeri Kelas</footer>
+		</section>
+		<!-- Tombol Scroll to Top -->
+		<button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-md hover:bg-opacity-80 transition-all z-50">↑</button>
+
+		<script src="script.js"></script>
+	</body>
+</html>
