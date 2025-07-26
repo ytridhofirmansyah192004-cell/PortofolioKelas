@@ -23,6 +23,7 @@ tailwind.config = {
 
 const navbar = document.getElementById("navbar");
 const anggotaSection = document.getElementById("anggota");
+const tentangSection = document.getElementById("tentang");
 const scrollBtn = document.getElementById("scrollToTopBtn");
 const heroSection = document.getElementById("hero");
 
@@ -53,7 +54,7 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
 });
 
 window.addEventListener("scroll", () => {
-	const anggotaTop = anggotaSection.offsetTop;
+	const anggotaTop = tentangSection.offsetTop;
 
 	if (window.scrollY > anggotaTop - 100) {
 		scrollBtn.classList.remove("hidden");
