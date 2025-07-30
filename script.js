@@ -30,6 +30,22 @@ const heroSection = document.getElementById("hero");
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
+function openModal(name, description, instagramLink, linkedinLink, imageUrl) {
+	document.getElementById("modalName").textContent = name;
+	document.getElementById("modalDescription").textContent = description;
+	document.getElementById("modalInstagram").href = instagramLink;
+	document.getElementById("modalLinkedIn").href = linkedinLink;
+	document.getElementById("modalImage").src = imageUrl;
+
+	document.getElementById("profileModal").classList.remove("hidden");
+	document.getElementById("profileModal").classList.add("flex");
+}
+
+function closeModal() {
+	document.getElementById("profileModal").classList.remove("flex");
+	document.getElementById("profileModal").classList.add("hidden");
+}
+
 // Toggle dropdown
 menuBtn.addEventListener("click", () => {
 	mobileMenu.classList.toggle("max-h-0");
