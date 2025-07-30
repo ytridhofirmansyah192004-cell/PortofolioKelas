@@ -94,18 +94,3 @@ window.addEventListener("scroll", () => {
 		menu.classList.add("text-white");
 	}
 });
-// loading screen
-
-window.addEventListener("load", () => {
-	const logos = document.querySelectorAll(".logo");
-	logos.forEach((logo, index) => {
-		setTimeout(() => {
-			logo.classList.add("fade-in");
-		}, index * 700); // Delay 0.5 detik per logo
-	});
-
-	// Sembunyikan loading screen setelah semua logo tampil
-	setTimeout(() => {
-		document.getElementById("loading-screen").style.display = "none";
-	}, 2000);
-});
