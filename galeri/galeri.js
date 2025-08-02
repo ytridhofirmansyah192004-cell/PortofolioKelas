@@ -1,112 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {
-	// Lightbox functionality
-	const lightbox = document.querySelector(".lightbox");
-	const lightboxMedia = document.querySelector(".lightbox-media");
-	const lightboxTitle = document.querySelector(".lightbox-title");
-	const lightboxDescription = document.querySelector(".lightbox-description");
-	const lightboxClose = document.querySelector(".lightbox-close");
-	const galleryItems = document.querySelectorAll(".gallery-item");
-	const scrollTopBtn = document.querySelector(".scroll-top");
+document.addEventListener("DOMContentLoaded", () => {
+	const $ = (sel) => document.querySelector(sel);
+	const $$ = (sel) => document.querySelectorAll(sel);
 
-	// Open lightbox
+	const lightbox = $(".lightbox");
+	const lightboxMedia = $(".lightbox-media");
+	const lightboxTitle = $(".lightbox-title");
+	const lightboxDescription = $(".lightbox-description");
+	const scrollTopBtn = $(".scroll-top");
+	const galleryItems = $$(".gallery-item");
+
+	// Open Lightbox
 	galleryItems.forEach((item) => {
-		item.addEventListener("click", function () {
-			const media = this.querySelector("img, video");
-			const title = media.getAttribute("data-title") || "Tidak Ada Judul";
-			const description = media.getAttribute("data-description") || "Tidak ada deskripsi yang tersedia.";
+		item.addEventListener("click", () => {
+			const media = item.querySelector("img, video");
+			const clone = media.cloneNode(true);
 
-			// Create a clone of the media
-			const mediaClone = media.cloneNode(true);
-			if (mediaClone.tagName === "VIDEO") {
-				mediaClone.muted = false;
-				mediaClone.autoplay = true;
-				mediaClone.play();
+			if (clone.tagName === "VIDEO") {
+				Object.assign(clone, { muted: false, autoplay: true });
+				clone.play();
 			}
 
-			// Clear previous content
 			lightboxMedia.innerHTML = "";
-
-			// Add the media to lightbox
-			lightboxMedia.appendChild(mediaClone);
-
-			// Set title and description
-			lightboxTitle.textContent = title;
-			lightboxDescription.textContent = description;
-
-			// Show the lightbox
+			lightboxMedia.appendChild(clone);
+			lightboxTitle.textContent = media.dataset.title || "Tidak Ada Judul";
+			lightboxDescription.textContent = media.dataset.description || "Tidak ada deskripsi yang tersedia.";
 			lightbox.classList.add("active");
 			document.body.style.overflow = "hidden";
-
-			// If it's a video, play it
-			if (media.tagName === "VIDEO") {
-				mediaClone.play();
-			}
 		});
 	});
 
-	// Close lightbox
-	lightboxClose.addEventListener("click", function () {
+	// Close Lightbox
+	const closeLightbox = () => {
 		lightbox.classList.remove("active");
 		document.body.style.overflow = "auto";
-
-		// Pause any playing video
 		const video = lightboxMedia.querySelector("video");
-		if (video) {
-			video.pause();
-		}
+		if (video) video.pause();
+	};
+
+	$(".lightbox-close").addEventListener("click", closeLightbox);
+	lightbox.addEventListener("click", (e) => {
+		if (e.target === lightbox) closeLightbox();
 	});
 
-	// Close lightbox when clicking outside content
-	lightbox.addEventListener("click", function (e) {
-		if (e.target === lightbox) {
-			lightbox.classList.remove("active");
-			document.body.style.overflow = "auto";
-
-			// Pause any playing video
-			const video = lightboxMedia.querySelector("video");
-			if (video) {
-				video.pause();
-			}
-		}
+	// Scroll To Top Button
+	window.addEventListener("scroll", () => {
+		scrollTopBtn.classList.toggle("visible", window.pageYOffset > 300);
 	});
+	scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-	// Scroll to top button
-	window.addEventListener("scroll", function () {
-		if (window.pageYOffset > 300) {
-			scrollTopBtn.classList.add("visible");
-		} else {
-			scrollTopBtn.classList.remove("visible");
-		}
-	});
-
-	scrollTopBtn.addEventListener("click", function () {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	});
-
-	// Auto-play videos in gallery when they become visible
+	// Auto Play/Pause Video on View
 	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const video = entry.target.querySelector("video");
-					if (video) {
-						video.play();
-					}
-				} else {
-					const video = entry.target.querySelector("video");
-					if (video) {
-						video.pause();
-					}
-				}
-			});
-		},
+		(entries) =>
+			entries.forEach(({ isIntersecting, target }) => {
+				const video = target.querySelector("video");
+				if (video) isIntersecting ? video.play() : video.pause();
+			}),
 		{ threshold: 0.5 }
 	);
 
-	galleryItems.forEach((item) => {
-		observer.observe(item);
-	});
+	galleryItems.forEach((item) => observer.observe(item));
 });
