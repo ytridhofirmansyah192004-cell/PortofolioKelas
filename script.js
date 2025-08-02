@@ -1,3 +1,4 @@
+// Tailwind Custom Config
 tailwind.config = {
 	theme: {
 		extend: {
@@ -6,91 +7,71 @@ tailwind.config = {
 				secondary: "#000000",
 			},
 			borderRadius: {
-				none: "0px",
-				sm: "4px",
-				DEFAULT: "8px",
-				md: "12px",
-				lg: "16px",
-				xl: "20px",
-				"2xl": "24px",
-				"3xl": "32px",
-				full: "9999px",
 				button: "8px",
 			},
 		},
 	},
 };
 
-const navbar = document.getElementById("navbar");
-const anggotaSection = document.getElementById("anggota");
-const tentangSection = document.getElementById("tentang");
-const scrollBtn = document.getElementById("scrollToTopBtn");
-const heroSection = document.getElementById("hero");
+// DOM References
+const el = (id) => document.getElementById(id);
+const navbar = el("navbar");
+const menuBtn = el("menu-btn");
+const mobileMenu = el("mobile-menu");
+const heroSection = el("hero");
+const tentangSection = el("tentang");
+const scrollBtn = el("scrollToTopBtn");
 
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-function openModal(name, description, instagramLink, linkedinLink, imageUrl) {
-	document.getElementById("modalName").textContent = name;
-	document.getElementById("modalDescription").textContent = description;
-	document.getElementById("modalInstagram").href = instagramLink;
-	document.getElementById("modalLinkedIn").href = linkedinLink;
-	document.getElementById("modalImage").src = imageUrl;
-
-	document.getElementById("profileModal").classList.remove("hidden");
-	document.getElementById("profileModal").classList.add("flex");
+// Modal
+function openModal(name, description, ig, linkedin, imageUrl) {
+	el("modalName").textContent = name;
+	el("modalDescription").textContent = description;
+	el("modalInstagram").href = ig;
+	el("modalLinkedIn").href = linkedin;
+	el("modalImage").src = imageUrl;
+	el("profileModal").classList.remove("hidden");
+	el("profileModal").classList.add("flex");
 }
 
 function closeModal() {
-	document.getElementById("profileModal").classList.remove("flex");
-	document.getElementById("profileModal").classList.add("hidden");
+	el("profileModal").classList.remove("flex");
+	el("profileModal").classList.add("hidden");
 }
 
-// Toggle dropdown
+// Mobile Menu Toggle
 menuBtn.addEventListener("click", () => {
 	mobileMenu.classList.toggle("max-h-0");
-	mobileMenu.classList.toggle("py-3"); // agar animasi smooth saat terbuka
+	mobileMenu.classList.toggle("py-3");
 });
 
-// Close dropdown saat klik di luar
+// Close menu when clicking outside
 document.addEventListener("click", (e) => {
 	if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-		// Pastikan menu sedang terbuka
-		if (!mobileMenu.classList.contains("max-h-0")) {
-			mobileMenu.classList.add("max-h-0");
-			mobileMenu.classList.remove("py-3");
-		}
+		mobileMenu.classList.add("max-h-0");
+		mobileMenu.classList.remove("py-3");
 	}
 });
-document.querySelectorAll("#mobile-menu a").forEach((link) => {
+
+// Close menu when link clicked
+document.querySelectorAll("#mobile-menu a").forEach((link) =>
 	link.addEventListener("click", () => {
 		mobileMenu.classList.add("max-h-0");
 		mobileMenu.classList.remove("py-3");
-	});
-});
+	})
+);
 
+// Scroll behavior
 window.addEventListener("scroll", () => {
-	const anggotaTop = tentangSection.offsetTop;
-
-	if (window.scrollY > anggotaTop - 100) {
-		scrollBtn.classList.remove("hidden");
-	} else {
-		scrollBtn.classList.add("hidden");
-	}
-});
-
-// Scroll listener untuk ubah warna navbar
-window.addEventListener("scroll", () => {
-	const heroBottom = heroSection.offsetHeight;
 	const scrollY = window.scrollY;
+	const heroBottom = heroSection.offsetHeight;
+	const tentangTop = tentangSection.offsetTop;
 
-	if (scrollY > heroBottom - 80) {
-		navbar.classList.remove("text-white");
-		navbar.classList.add("text-gray-800");
-		menu.classList.remove("text-white");
-	} else {
-		navbar.classList.add("text-white");
-		navbar.classList.remove("text-gray-800");
-		menu.classList.add("text-white");
-	}
+	// Show/hide scroll to top
+	scrollBtn.classList.toggle("hidden", scrollY < tentangTop - 100);
+
+	// Navbar text color change
+	const isBelowHero = scrollY > heroBottom - 80;
+	navbar.classList.toggle("text-white", !isBelowHero);
+	navbar.classList.toggle("text-gray-800", isBelowHero);
+	menu.classList.toggle("text-white", !isBelowHero);
 });
