@@ -9,6 +9,39 @@
 * {
 	scroll-behavior: smooth;
 }
+#menu a.active {
+	position: relative;
+}
+
+#menu a.active::after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #1a1f3c; /* atau warna primary kamu */
+	animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
 .diagonal-section {
 	position: absolute;
 	width: 100%;

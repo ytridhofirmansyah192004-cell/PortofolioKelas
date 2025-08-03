@@ -21,6 +21,39 @@ const mobileMenu = el("mobile-menu");
 const heroSection = el("hero");
 const tentangSection = el("tentang");
 const scrollBtn = el("scrollToTopBtn");
+const sections = document.querySelectorAll("section[id]");
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+function clearActiveNav() {
+	navLinks.forEach((link) => {
+		link.classList.remove("active");
+	});
+}
+
+const observer = new IntersectionObserver(
+	(entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				const id = entry.target.getAttribute("id");
+
+				clearActiveNav();
+
+				if (id !== "hero") {
+					const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+					if (activeLink) {
+						activeLink.classList.add("active"); // Ini class dengan animasi
+					}
+				}
+			}
+		});
+	},
+	{ threshold: 0.2 }
+);
+
+document.querySelectorAll("section").forEach((section) => {
+	observer.observe(section);
+});
 
 // Modal
 function openModal(name, description, ig, linkedin, imageUrl) {
