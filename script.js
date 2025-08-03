@@ -25,7 +25,7 @@ const scrollBtn = el("scrollToTopBtn");
 // Modal
 function openModal(name, description, ig, linkedin, imageUrl) {
 	el("modalName").textContent = name;
-	el("modalDescription").textContent = description;
+	el("modalDescription").innerHTML = description;
 	el("modalInstagram").href = ig;
 	el("modalLinkedIn").href = linkedin;
 	el("modalImage").src = imageUrl;
